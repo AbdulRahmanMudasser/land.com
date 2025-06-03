@@ -35,6 +35,7 @@ export default function SignUp() {
         } else if (errorMessage.includes('network error')) {
             return 'Network error. Please check your internet connection.';
         } else {
+            // console.log(errorMessage);
             return 'An unexpected error occurred. Please try again.';
         }
     }
