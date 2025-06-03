@@ -10,9 +10,16 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.9",
+    "autoprefixer": "^10.4.21",
+    "chart.js": "^4.4.9",
+    "jspdf": "^3.0.1",
+    "leaflet": "^1.9.4",
     "next": "15.3.3",
+    "postcss": "^8.5.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -23,7 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss-import": "^16.1.0",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.8",
     "typescript": "^5"
   }
 }
