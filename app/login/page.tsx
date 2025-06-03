@@ -1,9 +1,8 @@
-// pages/login.tsx
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../lib/supabase';
 
 export default function Login() {
   const [email, setEmail] = useState<string>('');
@@ -12,7 +11,6 @@ export default function Login() {
   const [message, setMessage] = useState<string>('');
   const router = useRouter();
 
-  // Validation function
   function validateLogin(email: string, password: string) {
     const errors: { email?: string; password?: string } = {};
     if (!email) {
@@ -26,7 +24,6 @@ export default function Login() {
     return errors;
   }
 
-  // Friendly error message mapping
   function getFriendlyErrorMessage(errorMessage: string): string {
     if (errorMessage.includes('invalid login credentials')) {
       return 'Incorrect email or password.';
@@ -50,7 +47,7 @@ export default function Login() {
     try {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      router.push('/dashboard'); // Redirect to dashboard on success
+      router.push('/dashboard');
     } catch (error) {
       setMessage(getFriendlyErrorMessage((error as Error).message));
     }
@@ -84,6 +81,9 @@ export default function Login() {
           Login
         </button>
       </form>
+      <p className="mt-4 text-center">
+        <a href="/forgot-password" className="text-blue-500 hover:underline">Forgot Password?</a>
+      </p>
       {message && <p className="mt-4 text-center">{message}</p>}
     </div>
   );
